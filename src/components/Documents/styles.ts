@@ -86,7 +86,7 @@ h1 {
         p {
           margin-top: 1rem;
           width: 90%;
-          margin: 0 auto;
+          margin-left: 1rem
         }
 
         img {
@@ -124,7 +124,7 @@ h1 {
         .description{
           justify-content: space-between;
           p {
-            padding: 0px 1rem 0 1rem;
+            margin-left: 1rem ;
           }
         }
       }
