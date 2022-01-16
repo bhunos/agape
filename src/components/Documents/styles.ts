@@ -58,6 +58,7 @@ h1 {
       border: none;
       background: var(--red-500);
       color: var(--white);
+      cursor: pointer;
     }
 
   }
@@ -76,10 +77,6 @@ h1 {
       .header {
         display: flex;
         align-items: center;
-        
-        img {
-          width: 79px;
-        }
       }
 
       
@@ -88,12 +85,13 @@ h1 {
         align-items: end;
         p {
           margin-top: 1rem;
-          padding: 0 8rem 0 1rem;
+          width: 90%;
+          margin: 0 auto;
         }
 
         img {
           margin-right: 1rem;
-          width: 30px;
+          width: 30px!important;
 
         }
       }

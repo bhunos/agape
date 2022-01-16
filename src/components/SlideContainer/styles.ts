@@ -42,22 +42,36 @@ export const Section = styled.div`
     margin: 0 auto;
     
     img {
-      width: 100%;
-      padding: 3rem;
+      width: 100% !important;
+      padding: 3rem !important;
     }
   }
 
   @media(max-width: 768px) {
+    
+    .swiper-wrapper {
+      width: 100%!important;
+      margin: 0 auto;
+      margin-left: 34%;
+    }
+
     .swiper-slide {
       opacity: 0;
+      visibility: hidden;
+      cursor: none;
+      /* margin-left: 0%; */
+
     }
 
     .swiper-slide.image.swiper-slide-active {
       opacity: 1;
+      
     }
 
-    .carousel img {
-      width: 60vw;
+    .carousel .image a img {
+      position: relative;
+      visibility: visible;
+      padding: 0!important;
     }
 }
 `

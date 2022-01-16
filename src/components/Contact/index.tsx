@@ -1,5 +1,10 @@
+import React from 'react';
 import Link from 'next/link';
-import react from 'react';
+import Image from 'next/image';
+import whatsapp from '../../../public/image/whatsapp.svg'
+import tel from '../../../public/image/tel.svg'
+import localization from '../../../public/image/localization.svg'
+import mail from '../../../public//image/mail.svg'
 import { Section } from './styles';
 
 export const Contact = () => {
@@ -9,29 +14,37 @@ export const Contact = () => {
         <h2>Entre em contato com a gente!</h2>
         <p>Entre em contato com a Agape,
           queremos tirar suas dúvidas, ouvir suas críticas e sugestões.</p>
-        <a href="#">
-          <button><img src="./image/whatsapp.svg" alt="Whatsapp" />Entrar em contato</button>
-        </a>
+        <Link href='https://api.whatsapp.com/send?phone=5544984449862&text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site.'>
+          <a target="_blank">
+            <button><Image className="img" src={whatsapp} alt="Whatsapp" />Entrar em contato</button>
+          </a>
+        </Link>
       </div>
       <div className="contacts">
         <div className="tel">
-          <a href="tel:+554436231092">
-            <img src="./image/tel.svg" alt="Telefone" />
-            44 3623-1092
-          </a>
+          <Link href={'tel:+554436231092'}>
+            <a target="_blank">
+              <Image src={tel} alt="Telefone" />
+              44 3623-1092
+            </a>
+          </Link>
         </div>
         <div className="localization">
-          <a href="https://goo.gl/maps/jqKe7dhvaX1PRBPd7">
-            <img src="./image/localization.svg" alt="Localização" />
-            R. Rua Paulo Perussi 6354
-            Parque bandeirantes - Umuarama Pr
-          </a>
+          <Link href="https://goo.gl/maps/jqKe7dhvaX1PRBPd7">
+            <a target="_blank">
+              <Image className="localization" src={localization} alt="Localização" />
+              R. Rua Paulo Perussi 6354
+              Parque bandeirantes - Umuarama Pr
+            </a>
+          </Link>
         </div>
         <div className="tel">
-          <a href="mailto:agapeoc@hotmail.com">
-            <img src="./image/mail.svg" alt="E-mail" />
-            agapeoc@hotmail.com
-          </a>
+          <Link href="mailto:agapeoc@hotmail.com">
+            <a target="_blank">
+              <Image src={mail} alt="E-mail" />
+              agapeoc@hotmail.com
+            </a>
+          </Link>
         </div>
       </div>
     </Section>

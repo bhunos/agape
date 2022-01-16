@@ -8,9 +8,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^2.1.8",
     "@lottiefiles/lottie-player": "^1.5.4",
+    "aws-amplify": "^4.3.12",
+    "emotion": "^11.0.0",
     "next": "12.0.7",
     "next-auth": "^4.1.0",
+    "next-authentication": "^0.3.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "styled-components": "^5.3.3",

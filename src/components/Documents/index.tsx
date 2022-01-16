@@ -1,4 +1,10 @@
+import React from "react"
 import { Section } from "./styles"
+import Image from "next/image"
+import logoteste from "../../../public/image/logoteste.png"
+import doc from "../../../public/image/doc.svg"
+import download from "../../../public/image/download-file-square-line.svg"
+import Link from "next/link"
 
 export const Documents = () => {
   return (
@@ -9,43 +15,29 @@ export const Documents = () => {
       <div className="container">
         <div className="perfil">
           <div className="image">
-            <img src="./image/logoteste.png" alt="Usuario" />
+            <Image src={logoteste} alt="Usuario" />
           </div>
           <h2>Name User</h2>
           <p>29.123.123.0001-00</p>
-          <a href="">
-            <button>Editar</button>
-          </a>
+          <Link href="#">
+            <a>
+              <button>Editar</button>
+            </a>
+          </Link>
         </div>
         <div className="content">
           <div className="card">
             <div className="header">
-              <img src="./image/doc.svg" alt="" />
+              <Image src={doc} alt="" />
               <h2>name Doc</h2>
             </div>
             <div className="description">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A viverra cursus pulvinar senectus lorem lacus. </p>
-              <img src="./image/download-file-square-line.svg" alt="" />
-            </div>
-          </div>
-          <div className="card">
-            <div className="header">
-              <img src="./image/doc.svg" alt="" />
-              <h2>name Doc</h2>
-            </div>
-            <div className="description">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A viverra cursus pulvinar senectus lorem lacus. Tortor ornare rhoncus vulputate hendrerit pellentesque volutpat aliquet vitae. Arcu egestas eu hendrerit vestibulum vivamus. Iaculis viverra laoreet urna condimentum mollis. In sed sodales amet sed diam urna, eget ipsum nunc. </p>
-              <img src="./image/download-file-square-line.svg" alt="" />
-            </div>
-          </div>
-          <div className="card">
-            <div className="header">
-              <img src="./image/doc.svg" alt="" />
-              <h2>name Doc</h2>
-            </div>
-            <div className="description">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A viverra cursus pulvinar senectus lorem lacus. Tortor ornare rhoncus vulputate hendrerit pellentesque volutpat aliquet vitae. Arcu egestas eu hendrerit vestibulum vivamus. Iaculis viverra laoreet urna condimentum mollis. In sed sodales amet sed diam urna, eget ipsum nunc. </p>
-              <img src="./image/download-file-square-line.svg" alt="" />
+              <Link href="">
+                <a>
+                  <Image src={download} alt="" />
+                </a>
+              </Link>
             </div>
           </div>
         </div>

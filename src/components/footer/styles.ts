@@ -18,6 +18,12 @@ margin: 0 auto;
     margin-top: 1rem;
     margin-left: 2rem;
   }
+
+  .image {
+    display: flex;
+    width: 200px;
+    margin: 0 auto;
+  }
 }
 
 .social {
@@ -44,7 +50,7 @@ margin: 0 auto;
     justify-content: center;
 
     img {
-      width: 50px;
+      width: 50px!important;
       
     }
   }

@@ -1,13 +1,16 @@
 import React from "react";
+import Image from "next/image"
+import close from "../../../public/image/close.svg"
 import { IsModalVisible } from "../SinginButton";
 import { Section } from "./styles";
+import Link from "next/link";
 
 export const ModalLogin = ({ isModalVisible, onClickLink }: IsModalVisible) => {
   return (
     <Section>
       <div className="content">
         <div className="close" onClick={onClickLink}>
-          <img src="./image/close.svg" alt="Fechar" />
+          <Image src={close} alt="Fechar" />
         </div>
         <h1>Login Agape Docs</h1>
         <p>Entre para ter acesso a os documentos</p>
@@ -19,8 +22,12 @@ export const ModalLogin = ({ isModalVisible, onClickLink }: IsModalVisible) => {
           </label>
         </form>
         <div className="links">
-          <a href="">Esqueceu a senha?</a>
-          <a href="">Solicite um cadastro</a>
+          <Link href="">
+            <a>Esqueceu a senha?</a>
+          </Link>
+          <Link href="">
+            <a>Solicite um cadastro</a>
+          </Link>
         </div>
       </div>
     </Section>

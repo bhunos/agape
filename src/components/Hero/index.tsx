@@ -1,3 +1,4 @@
+import React from 'react'
 import { LottieScrol } from "../LottieScrol"
 import { Section } from "./styles."
 

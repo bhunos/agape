@@ -27,6 +27,7 @@ display: flex;
     width: 100%;
     display: flex;
     justify-content: end;
+    cursor: pointer;
     
     margin-right: 4rem;
     img {
@@ -104,6 +105,18 @@ display: flex;
   .content {
     width: 80%;
     height: 80vh;
+
+    .close {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    cursor: pointer;    
+    margin-right: 4rem;
+    
+    img {
+      width: 1.5rem!important;
+    }
+  }
   
     h1 {
       font-size: 1.5rem

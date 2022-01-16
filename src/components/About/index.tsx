@@ -1,11 +1,13 @@
 import React from 'react'
+import Image from 'next/image'
+import aboutPhoto from '../../../public/image/aboutPhoto.png'
 import { AboutSection } from './styles'
 
 export const About = () => {
   return (
     <AboutSection id="about">
       <div className="imgSection">
-        <img src="./image/aboutPhoto.png" alt="mãos sobre teclado do nootbook" />
+        <Image src={aboutPhoto} alt="mãos sobre teclado do nootbook" />
       </div>
       <div className="description">
         <h2>Nossa Historia</h2>

@@ -1,5 +1,7 @@
 import React from 'react'
 import { Container } from "./styles"
+import Image from "next/image"
+import women from "../../../public/image/women.png"
 
 export function Subscribe() {
   return (
@@ -14,7 +16,7 @@ export function Subscribe() {
         </a>
       </div>
       <div className="imageContainer">
-        <img src="./image/women.png" alt="" />
+        <Image src={women} alt="" />
       </div>
     </Container>
   )

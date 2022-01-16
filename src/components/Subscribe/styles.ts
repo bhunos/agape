@@ -56,9 +56,9 @@ margin: 0 auto;
   padding-top: 5rem;
 
   .imageContainer {
-    margin-top: 2rem;
-    max-width: 100%;
+    max-width: 50%;
     max-height: 100%;
+    margin: 0 auto;
 
   }
 

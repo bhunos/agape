@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React, { useEffect } from 'react'
 import { OpenProps } from '../HamburgerMenu'
 import { SinginButton } from '../SinginButton'
@@ -11,16 +12,24 @@ export const RingthNav = ({ open, onClickLink }: OpenProps) => {
   return (
     <Ul open={open} id="menu">
       <li>
-        <a href="#home" onClick={onClickLink}>Início</a>
+        <Link href="/#home">
+          <a onClick={onClickLink}>Início</a>
+        </Link>
       </li>
       <li>
-        <a href="#about" onClick={onClickLink}>Sobre</a>
+        <Link href="/#about">
+          <a onClick={onClickLink}>Sobre</a>
+        </Link>
       </li>
       <li>
-        <a href="#services" onClick={onClickLink}>Serviços</a>
+        <Link href="/#services">
+          <a onClick={onClickLink}>Serviços</a>
+        </Link>
       </li>
       <li>
-        <a href="#contact" onClick={onClickLink}>Contato</a>
+        <Link href="/#contact">
+          <a onClick={onClickLink}>Contato</a>
+        </Link>
       </li>
       <SinginButton />
     </Ul>

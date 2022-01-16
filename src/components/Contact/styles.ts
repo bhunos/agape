@@ -32,6 +32,7 @@ gap: 2rem;
         border: none;
         background: #FAFAFA;
         border: 1px solid var(--gray);
+        gap: 0.5rem;
         
         margin-top: 0.8rem;
         cursor:pointer;
@@ -39,9 +40,6 @@ gap: 2rem;
 
         &:hover {
           filter: drop-shadow(1px 1px 2px black) invert(1%);
-        }
-        img {
-          margin-right: 0.5rem;
         }
       }
 
@@ -54,10 +52,15 @@ gap: 2rem;
      display: flex;
      align-items: center; 
      margin-top: 0.9rem;
-    }
+     gap: 1rem;
+     }
 
-    img {
-      margin-right: 1rem;
+     .localization {
+        img {
+          width: 30px!important;
+        }
+      }
+
     }
   }
 
@@ -84,6 +87,12 @@ gap: 2rem;
 
     .contacts {
       width: 70%;
+
+      .localization {
+        img {
+          width: 50px!important;
+        }
+      }
     }
 
   }

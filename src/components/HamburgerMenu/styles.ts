@@ -3,7 +3,7 @@ import { OpenProps } from "./index"
 
 
 
-export const Div = styled.div<OpenProps>`
+export const Div: any = styled.div<OpenProps>`
 width: 2rem;
 height: 2rem;
 z-index: 100;
