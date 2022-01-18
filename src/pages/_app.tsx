@@ -1,15 +1,15 @@
 import { GlobalStyle } from "../styles/globals";
 import type { AppProps } from 'next/app'
-import { SessionProvider as NextAuthProvider } from 'next-auth/react'
 import { Header } from '../components/Header'
+import { AuthProvider } from "../contexts/AuthContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NextAuthProvider session={pageProps.session}>
+    <AuthProvider>
       <Header />
       <Component {...pageProps} />
       <GlobalStyle />
-    </NextAuthProvider>
+    </AuthProvider>
 
   )
 }

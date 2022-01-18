@@ -6,8 +6,6 @@ import { Footer } from '../../components/footer'
 import { HeroUser } from '../../components/HeroUser'
 
 
-
-
 const User: NextPage = () => {
   return (
     <>
