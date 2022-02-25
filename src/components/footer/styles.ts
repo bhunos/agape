@@ -13,7 +13,7 @@ margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+
   p {
     margin-top: 1rem;
     margin-left: 2rem;
@@ -46,12 +46,11 @@ margin: 0 auto;
 
   a {
     display: flex;
-    align-items: ;
     justify-content: center;
 
     img {
       width: 50px!important;
-      
+
     }
   }
 }
@@ -68,4 +67,5 @@ margin: 0 auto;
     margin-top: 3rem;
   }
 }
-`
+
+`;

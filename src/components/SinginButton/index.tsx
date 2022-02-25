@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { ModalLogin } from '../ModalLogin';
+import Link from "next/link";
+import React, { useState } from "react";
+import { Login } from "../Login";
 
-import { Content } from "./styles"
+import { Content } from "./styles";
 
 export interface IsModalVisible {
   isModalVisible: boolean;
@@ -9,14 +10,16 @@ export interface IsModalVisible {
 }
 
 export function SinginButton() {
-  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
     <>
-      <Content className="singinButton" onClick={() => setIsModalVisible(true)}>
-        Entrar
+      <Content>
+        <Link href="login">
+          <a>Entrar</a>
+        </Link>
       </Content>
-      {isModalVisible ? <ModalLogin isModalVisible={isModalVisible} onClickLink={() => setIsModalVisible(false)} /> : null}
+      {isModalVisible ? <Login /> : null}
     </>
-  )
+  );
 }
