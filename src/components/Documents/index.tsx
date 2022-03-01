@@ -17,10 +17,10 @@ export const Documents = () => {
       <div className="container">
         <div className="perfil">
           <div className="image">
-            <img src={user?.avatar_url} alt="Usuario" />
+            <img src="" alt="Usuario" />
           </div>
-          <h2>{user?.name}</h2>
-          <p>{user?.document}</p>
+          <h2></h2>
+          <p></p>
           <Link href="#">
             <a>
               <button>Editar</button>
@@ -31,7 +31,7 @@ export const Documents = () => {
           <div className="card">
             <div className="header">
               <Image src={doc} alt="" />
-              <h2>{user.}</h2>
+              <h2></h2>
             </div>
             <div className="description">
               <p>

@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import Router from "next/router";
-import axios from "axios";
-import { response } from "express";
+import { setCookie, parseCookies } from "nookies";
 
 type SignInData = {
   email: string;
@@ -22,34 +21,48 @@ type AuthContextType = {
 
 export const AuthContext = createContext({} as AuthContextType);
 
-export function AuthProvider({ children }: any) {
-  const [user, setUser] = useState<User | any>(null);
-  async function signIn() {
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState<User | null>(null);
+
+  const isAuthenticated = !!user;
+
+  useEffect(() => {
+    const { token } = parseCookies();
+  }, []);
+
+  async function signIn({ email, password }: SignInData) {
     try {
-      const user = await fetch(`https://api.agapeoc.com.br`, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-      }).then((response) => {
-        console.log(response);
+      const { token, user }: any = async function getStaticProps() {
+        const res = await fetch("http://api.agapeoc.com.br/login", {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        });
+        const data = await res.json();
+        return { props: { data } };
+      };
+
+      setCookie(undefined, "token", token, {
+        maxAge: 60 * 60 * 1, // 1 hour
       });
-      console.log(user);
 
-      console.log("entrou");
+      setUser(user);
     } catch (err) {
-      return { err };
+      console.log("error");
     }
-
-    setUser(user);
 
     Router.push("/user");
   }
 
   return (
-    <AuthContext.Provider value={{ user, signIn }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
       {children}
     </AuthContext.Provider>
   );
