@@ -1,6 +1,7 @@
-import { createContext, useEffect, useState } from "react";
-import Router from "next/router";
-import { setCookie, parseCookies } from "nookies";
+import { createContext, useEffect, useState } from 'react';
+import Router from 'next/router';
+import { parseCookies, setCookie } from 'nookies';
+import { BASE_URL } from '../config';
 
 type SignInData = {
   email: string;
@@ -26,27 +27,28 @@ export function AuthProvider({ children }: any) {
   }, []);
 
   async function signIn({ email, password }: SignInData) {
-    const res = await fetch("http://api.agapeoc.com.br/login", {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
+    const res = await fetch(`${BASE_URL}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', },
       body: JSON.stringify({
         email,
         password,
       }),
     });
-    console.log(res);
+
     const api = await res.json();
+
+    if (api.error) {
+      throw new Error(api.message);
+    }
+
     setToken(api.token);
 
-    setCookie(null, "token", api.token, {
-      maxAge: 60 * 60 * 1, // 1 hour
+    setCookie(null, 'token', api.token, {
+      maxAge: 60 * 60, // 1 hour
     });
 
-    Router.push("/user");
+    await Router.push('/user');
   }
 
   return (

@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { Section } from "./styles";
-import Link from "next/link";
+import React, { useContext } from 'react';
+import { Section } from './styles';
+import Link from 'next/link';
 
-import { useForm } from "react-hook-form";
-import { AuthContext } from "../../contexts/AuthContext";
+import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -12,8 +12,8 @@ export const Login = () => {
   async function handleSign(data: any) {
     try {
       await signIn(data);
-    } catch (error) {
-      console.log(error);
+    } catch ({ message }) {
+      alert(message);
     }
   }
 
@@ -22,10 +22,11 @@ export const Login = () => {
       <div className="content">
         <h1>Login Agape Docs</h1>
         <p>Entre para ter acesso a os documentos</p>
+
         <form action="" method="POST" onSubmit={handleSubmit(handleSign)}>
           <label htmlFor="loginForm">
             <input
-              {...register("email")}
+              {...register('email')}
               name="email"
               type="email"
               id="singinEmail"
@@ -33,8 +34,9 @@ export const Login = () => {
               required
               placeholder="Email"
             />
+
             <input
-              {...register("password")}
+              {...register('password')}
               name="password"
               type="password"
               id="singinPassword"
@@ -45,11 +47,13 @@ export const Login = () => {
             <input type="submit" id="singinButton" value="Entrar" />
           </label>
         </form>
+
         <div className="links">
-          <Link href="">
+          <Link href="/recuperar-senha">
             <a>Esqueceu a senha?</a>
           </Link>
-          <Link href="createUser">
+
+          <Link href="/registrar">
             <a>Criar Conta</a>
           </Link>
         </div>
