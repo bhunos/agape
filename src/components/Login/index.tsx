@@ -9,11 +9,11 @@ export const Login = () => {
   const { register, handleSubmit } = useForm();
   const { signIn } = useContext(AuthContext);
 
-  async function handleSign(data) {
+  async function handleSign(data: any) {
     try {
       await signIn(data);
-    } catch (err) {
-      console.log("erro bravo");
+    } catch (error) {
+      console.log(error);
     }
   }
 

@@ -7,62 +7,50 @@ type SignInData = {
   password: string;
 };
 
-type User = {
-  name: string;
-  email: string;
-  password: string;
-};
-
 type AuthContextType = {
-  isAuthenticated: boolean;
-  user: User;
+  token: string | null;
   signIn: (data: SignInData) => Promise<void>;
 };
 
 export const AuthContext = createContext({} as AuthContextType);
 
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState<User | null>(null);
-
-  const isAuthenticated = !!user;
+export function AuthProvider({ children }: any) {
+  const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
-    const { token } = parseCookies();
+    const cookie = parseCookies();
+
+    if (cookie.token) {
+      setToken(cookie.token);
+    }
   }, []);
 
   async function signIn({ email, password }: SignInData) {
-    try {
-      const { token, user }: any = async function getStaticProps() {
-        const res = await fetch("http://api.agapeoc.com.br/login", {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-        });
-        const data = await res.json();
-        return { props: { data } };
-      };
+    const res = await fetch("http://api.agapeoc.com.br/login", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+    console.log(res);
+    const api = await res.json();
+    setToken(api.token);
 
-      setCookie(undefined, "token", token, {
-        maxAge: 60 * 60 * 1, // 1 hour
-      });
-
-      setUser(user);
-    } catch (err) {
-      console.log("error");
-    }
+    setCookie(null, "token", api.token, {
+      maxAge: 60 * 60 * 1, // 1 hour
+    });
 
     Router.push("/user");
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
+    <AuthContext.Provider value={{ token, signIn }}>
       {children}
     </AuthContext.Provider>
   );
