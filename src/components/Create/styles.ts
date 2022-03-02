@@ -2,61 +2,88 @@ import styled from "styled-components";
 
 export const CreateStyled = styled.section`
   padding-top: 5rem;
-
-  .line-one,
-  .line-two,
-  .line-tree {
-    display: flex;
-    flex-direction: column;
-  }
-
   .container {
-    width: 40%;
+    width: 40rem;
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
+      text-align: center;
       margin-bottom: 1rem;
-      text-align: center;
     }
-    margin: 0 auto;
-    form {
-      text-align: center;
+  margin: 0 auto;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    .create {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      width: 100%;
+
+
       label {
-        text-align: start;
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-        span {
-          color: red;
-        }
+        font: 1rem;
+        margin-top: .5rem;
       }
+
       input {
+        width: 100%;
+        height: 2.5rem;
         font-size: 0.8rem;
-        margin-bottom: 1rem;
-        height: 3rem;
-        padding: 1rem;
-      }
-
-      .createButton {
-        background-color: var(--red-500);
-        color: var(--white);
-        font-size: 1rem;
-        font-weight: 700;
-        border: none;
-        border-radius: 2.4rem;
-        width: 30%;
+        padding: 0.5rem;
       }
     }
-  }
 
-  @media (max-width: 768px) {
-    .container {
-      width: 90%;
+    .select-document{
+      .radio {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        align-items: center;
+        cursor: pointer;
 
-      form {
-        .createButton {
-          width: 70%;
+        input {
+          width: auto;
+          height: auto;
         }
+
+        .cpf, .cnpj {
+          display: flex;
+          gap: .5rem;
+          align-items: center;
+        }
+
       }
     }
+
+    .createButton {
+      font-size: 1rem;
+      padding: .5rem 1rem;
+      color: var(--white);
+      background: var(--red-500);
+      border: none;
+      border-radius: 2rem;
+      width: 9rem;
+      margin-top: 1rem;
+      height: 2.5rem;
+      margin-bottom: 5rem;
+    }
   }
+}
+
+@media (max-width: 768px) {
+      padding: 3rem;
+
+      .container {
+        width: 100%;
+      }
+  }
+  }
+
+
 `;

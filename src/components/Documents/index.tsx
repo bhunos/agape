@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { Section } from "./styles";
 import Image from "next/image";
 import doc from "../../../public/image/doc.svg";
 import download from "../../../public/image/download-file-square-line.svg";
 import Link from "next/link";
-import { AuthContext } from "../../contexts/AuthContext";
+import { BASE_URL } from "../../config";
+import { GetStaticProps } from "next";
+import axios from "axios";
 
-export const Documents = () => {
-  const { user } = useContext(AuthContext);
+export const Documents = ({ user }: any) => {
+  console.log(user);
 
   return (
     <Section>
@@ -19,7 +21,7 @@ export const Documents = () => {
           <div className="image">
             <img src="" alt="Usuario" />
           </div>
-          <h2></h2>
+          <h2>{user?.name}</h2>
           <p></p>
           <Link href="#">
             <a>
@@ -38,7 +40,7 @@ export const Documents = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. A
                 viverra cursus pulvinar senectus lorem lacus.{" "}
               </p>
-              <Link href="">
+              <Link href="/dowload">
                 <a>
                   <Image src={download} alt="" />
                 </a>
@@ -49,4 +51,12 @@ export const Documents = () => {
       </div>
     </Section>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await axios.get(`${BASE_URL}/`);
+
+  const user = await res.json();
+
+  return user;
 };

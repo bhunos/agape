@@ -15,7 +15,7 @@ export function SinginButton() {
   return (
     <>
       <Content>
-        <Link href="login">
+        <Link href="/entrar">
           <a>Entrar</a>
         </Link>
       </Content>

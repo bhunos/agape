@@ -1,14 +1,14 @@
-import { createContext, useEffect, useState } from 'react';
-import Router from 'next/router';
-import { parseCookies, setCookie } from 'nookies';
-import { BASE_URL } from '../config';
+import { createContext, useEffect, useState } from "react";
+import Router from "next/router";
+import { parseCookies, setCookie } from "nookies";
+import { BASE_URL } from "../config";
 
 type SignInData = {
   email: string;
   password: string;
 };
 
-type AuthContextType = {
+export type AuthContextType = {
   token: string | null;
   signIn: (data: SignInData) => Promise<void>;
 };
@@ -28,8 +28,8 @@ export function AuthProvider({ children }: any) {
 
   async function signIn({ email, password }: SignInData) {
     const res = await fetch(`${BASE_URL}/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email,
         password,
@@ -44,11 +44,11 @@ export function AuthProvider({ children }: any) {
 
     setToken(api.token);
 
-    setCookie(null, 'token', api.token, {
+    setCookie(null, "token", api.token, {
       maxAge: 60 * 60, // 1 hour
     });
 
-    await Router.push('/user');
+    await Router.push("/user");
   }
 
   return (

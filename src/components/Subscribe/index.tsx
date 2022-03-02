@@ -14,10 +14,10 @@ export function Subscribe() {
           Brasil.
         </p>
         <div className="buttons">
-          <Link href="login">
+          <Link href="/entrar">
             <button>Entrar</button>
           </Link>
-          <Link href="createUser">
+          <Link href="/registrar">
             <button>Cadastrar-se</button>
           </Link>
         </div>
