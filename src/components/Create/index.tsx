@@ -156,8 +156,6 @@ export function Create() {
               placeholder="Insira seu telefone aqui"
               autoComplete="phone"
               required
-              minLength="11"
-              maxLength="11"
             />
           </div>
 

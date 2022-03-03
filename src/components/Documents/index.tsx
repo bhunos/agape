@@ -52,11 +52,3 @@ export const Documents = ({ user }: any) => {
     </Section>
   );
 };
-
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get(`${BASE_URL}/`);
-
-  const user = await res.json();
-
-  return user;
-};
