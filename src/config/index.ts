@@ -1,1 +1,1 @@
-export const BASE_URL = 'http://api.agapeoc.com.br';
+export const BASE_URL = 'https://api.agapeoc.com.br';
