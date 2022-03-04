@@ -10,7 +10,7 @@ import { ServicesContainer } from './styles'
 export const Services = () => {
   return (
     <ServicesContainer id="services">
-      <h2>Seviços</h2>
+      <h2>Serviços</h2>
       <section className="cards">
         <div className="card">
           <Image src={working} alt="" />
