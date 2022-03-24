@@ -3,12 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import Image from "next/image";
 import logoteste from "../../../public/image/sliderr-logo.svg";
+import logoAdvocacia from "../../../public/image/advocacia.webp";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/grid";
-import { A11y, Navigation, Pagination } from "swiper";
+import { Navigation, Pagination } from "swiper";
 import Link from "next/link";
 
 export const SliderContiner = () => {
@@ -48,21 +49,7 @@ export const SliderContiner = () => {
         <SwiperSlide className="image">
           <Link href="#">
             <a target="_blank">
-              <Image src={logoteste} alt="" />
-            </a>
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide className="image">
-          <Link href="#">
-            <a target="_blank">
-              <Image src={logoteste} alt="" />
-            </a>
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide className="image">
-          <Link href="#">
-            <a target="_blank">
-              <Image src={logoteste} alt="" />
+              <Image src={logoAdvocacia} alt="" />
             </a>
           </Link>
         </SwiperSlide>

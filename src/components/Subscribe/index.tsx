@@ -17,9 +17,6 @@ export function Subscribe() {
           <Link href="/entrar">
             <button>Entrar</button>
           </Link>
-          <Link href="/registrar">
-            <button>Cadastrar-se</button>
-          </Link>
         </div>
       </div>
       <div className="imageContainer">
