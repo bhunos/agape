@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Section = styled.div`
   padding: 5rem 0;
@@ -7,14 +7,15 @@ export const Section = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-gap: 2rem;
+  gap: 2rem;
+
   .info {
     width: 50vw;
 
     h2 {
       font-size: 2.5rem;
     }
-    
+
     p {
       margin-top: 1rem;
       font-size: 1.25rem;
@@ -33,7 +34,7 @@ gap: 2rem;
         background: #FAFAFA;
         border: 1px solid var(--gray);
         gap: 0.5rem;
-        
+
         margin-top: 0.8rem;
         cursor:pointer;
         transition: all 0.4s;
@@ -43,14 +44,15 @@ gap: 2rem;
         }
       }
 
-     
+
     }
   }
 
   .contacts {
-    a {
+    .matriz {
+      a {
      display: flex;
-     align-items: center; 
+     align-items: center;
      margin-top: 0.9rem;
      gap: 1rem;
      }
@@ -60,6 +62,31 @@ gap: 2rem;
           width: 30px!important;
         }
       }
+    }
+
+    .filial {
+      h1 {
+        margin-left: 4rem;
+        margin-top: 10px;
+        font-size: 18px;
+
+
+
+      }
+
+      a {
+     display: flex;
+     align-items: center;
+     margin-top: 0.9rem;
+     gap: 1rem;
+     }
+
+     .localization {
+        img {
+          width: 30px!important;
+        }
+      }
+    }
 
     }
   }
@@ -70,16 +97,16 @@ gap: 2rem;
     justify-content: center;
     width: 100%;
     margin: 0 auto;
-    
+
     .info {
       width: 70%;
-      
-      
+
+
       a {
         button {
           height: 50px;
           margin: 2rem auto 0;
-          
+
         }
 
       }
@@ -88,12 +115,19 @@ gap: 2rem;
     .contacts {
       width: 70%;
 
+     .filial {
+       h1 {
+         text-align: center;
+         margin-left: 0;
+       }
+
       .localization {
         img {
           width: 50px!important;
         }
       }
+     }
     }
 
   }
-`
+`;
