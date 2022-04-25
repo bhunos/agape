@@ -48,7 +48,20 @@ export function AuthProvider({ children }: any) {
       maxAge: 60 * 60, // 1 hour
     });
 
-    await Router.push("/user");
+    const response = await fetch(`${BASE_URL}/me`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': api.token,
+      },
+    })
+    const data = await response.json()
+
+    if(data.is_admin === "NAO") {
+      await Router.push(`/user`);
+    } else {
+      await Router.push("/admin");
+    }
   }
 
   return (

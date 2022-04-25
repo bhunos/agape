@@ -35,9 +35,11 @@ export function Create() {
     document_type,
     phone,
   }: createdProps) {
+    const cookies = parseCookies().token;
     const res = await fetch(`${BASE_URL}/register`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json",
+        'Authorization': `Bearer ${cookies}`},
       body: JSON.stringify({
         name,
         email,

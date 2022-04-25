@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Section = styled.div`
 
 background: #d7d7d7;
-width: 100vw;
 padding: 5rem 0;
 margin: 0 auto;
 

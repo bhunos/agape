@@ -33,7 +33,6 @@ h1 {
       display: flex;
       justify-content: center;
       img{
-        width: 60%;
         border-radius: 50rem;
 
       }
