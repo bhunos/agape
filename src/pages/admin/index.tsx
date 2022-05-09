@@ -1,4 +1,4 @@
-import type {NextPage} from "next";
+import type {GetServerSideProps, NextPage} from "next";
 import {Divider} from "../../components/Divider";
 import {Footer} from "../../components/footer";
 import {HeroUser} from "../../components/HeroUser";
@@ -9,49 +9,16 @@ import {parseCookies} from "nookies";
 import {BASE_URL} from "../../config";
 import Gravatar from 'react-gravatar'
 
-const User: NextPage = () => {
-    const [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [isError, setIsError] = useState(false);
-
-
-    async function fetchData() {
-        const cookies = parseCookies().token;
-        const response = await fetch(`${BASE_URL}/admin/list-clients`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Authorization': `Bearer ${cookies}`
-            },
-        }).then((response) => response.json())
-            .then((data) => {
-                setIsLoading(false);
-                setData(data)
-            })
-            .catch((error) => {
-                setIsLoading(false);
-                setIsError(true);
-                console.log(error);
-            });
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-
+const User: NextPage = ({data}: any)  => {
     let rows = []
 
     for (let item in data) {
-        console.log('item', item);
+        const gravatar = data[item]
         rows.push(
-            <div className="card">
+            <div className="card" key={item}>
                 <div className="header">
-                    <Gravatar email={data[item].email}/>
-                    <h1>{data[item].name}</h1>
+                    <Gravatar email={gravatar.email}/>
+                    <h1>{gravatar.name}</h1>
                 </div>
                 <ul className="open">
                     <li>
@@ -65,7 +32,7 @@ const User: NextPage = () => {
                         </a>
                     </li>
                     <li>
-                        <a href="/list-documents">
+                        <a href={`/${gravatar.id}`}>
                             <img src="image/entrar.png" alt="Entrar"/>
                         </a>
                     </li>
@@ -97,5 +64,22 @@ const User: NextPage = () => {
         </>
     );
 };
+
+export const getServerSideProps:GetServerSideProps = async ({req}:any) => {
+        const response = await fetch(`${BASE_URL}/admin/list-clients`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${req.cookies.token}`
+            },
+        })
+        const data = await response.json();
+
+        return {
+            props: {
+                data
+            }
+        }
+}
 
 export default User;

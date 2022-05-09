@@ -58,7 +58,7 @@ export function AuthProvider({ children }: any) {
     const data = await response.json()
 
     if(data.is_admin === "NAO") {
-      await Router.push(`/user`);
+      await Router.push(`/user`)
     } else {
       await Router.push("/admin");
     }

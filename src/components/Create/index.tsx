@@ -61,7 +61,7 @@ export function Create() {
       maxAge: 60 * 60, // 1 hour
     });
 
-    await Router.push("/user");
+    await Router.push("/admin");
   }
 
   async function handleCreate(data: any) {

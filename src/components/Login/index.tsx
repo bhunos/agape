@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Section } from './styles';
 import Link from 'next/link';
-
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../contexts/AuthContext';
 

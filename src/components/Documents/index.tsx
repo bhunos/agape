@@ -5,45 +5,23 @@ import doc from "../../../public/image/doc.svg";
 import download from "../../../public/image/download-file-square-line.svg";
 import Link from "next/link";
 import {BASE_URL} from "../../config";
-import {parseCookies} from "nookies";
 import Gravatar from 'react-gravatar'
+import {GetServerSideProps, NextPage} from "next";
 
-export const Documents = () => {
-
-    const [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [isError, setIsError] = useState(false);
-
-    async function fetchData() {
-        const cookies = parseCookies().token;
-        const response = await fetch(`${BASE_URL}/me`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Authorization': `Bearer ${cookies}`
-            },
-        }).then((response) => response.json())
-            .then((data) => {
-                setIsLoading(false);
-                setData(data)
-            })
-            .catch((error) => {
-                setIsLoading(false);
-                setIsError(true);
-                console.log(error);
-            });
+interface dataProps {
+    data: {
+        id: string;
+        email: string;
+        name: string;
+        document: string;
+        documents: {}
     }
+}
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+// TODO: nao esta funcionando
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
 
-    console.log(data);
-
+export const Documents = ({data}: dataProps) => {
     return (
         <Section>
             <div className="title">
@@ -52,7 +30,7 @@ export const Documents = () => {
             <div className="container">
                 <div className="perfil">
                     <div className="image">
-                        <Gravatar email={data.email} size='150'/>
+                        <Gravatar email={data.email}/>
                     </div>
                     <h2>{data.name}</h2>
                     <p>{data.document}</p>
@@ -79,3 +57,23 @@ export const Documents = () => {
         </Section>
     );
 };
+
+export const getServerSideProps: GetServerSideProps = async ({params, req}:any) => {
+    console.log('req', req);
+    const response =
+        await fetch(`${BASE_URL}/me/${params.id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${req.cookies.token}`
+            },
+        })
+    const data = await response.json();
+    console.log('data', response);
+
+    return {
+        props: {
+            data
+        }
+    }
+}
