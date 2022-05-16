@@ -6,22 +6,72 @@ import download from "../../../public/image/download-file-square-line.svg";
 import Link from "next/link";
 import {BASE_URL} from "../../config";
 import Gravatar from 'react-gravatar'
-import {GetServerSideProps, NextPage} from "next";
+import {GetServerSideProps} from "next";
+import {parseCookies} from "nookies";
 
-interface dataProps {
-    data: {
-        id: string;
-        email: string;
-        name: string;
-        document: string;
+
+export const Documents = () => {
+    const {token} = parseCookies();
+
+    const [data , setData] = useState({
+        id: '',
+        email: '',
+        name: '',
+        document: '',
         documents: {}
+    });
+
+    async function getData() {
+        const response =
+            await fetch(`${BASE_URL}/me`, {
+                method: "GET",
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+            })
+        const data = await response.json();
+        setData(data)
     }
-}
 
-// TODO: nao esta funcionando
+    useEffect(() => {
+        getData()
+    }, [])
 
 
-export const Documents = ({data}: dataProps) => {
+
+    let rows = [];
+
+    for(let i in data.documents) {
+        // @ts-ignore
+        const document = data.documents[i];
+
+        const donwloadDocument = async () => {
+            await fetch(`${BASE_URL}/download-document/${document.id}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+        }
+
+        rows.push(
+            <div className="card" key={i}>
+                <div className="header">
+                    <Image src={doc} alt=""/>
+                    <h2>{document.name}</h2>
+                </div>
+                <div className="description">
+                    <p>
+                        {document.description}
+                    </p>
+                    <a onClick={donwloadDocument} download>
+                        <Image src={download} alt=""/>
+                    </a>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <Section>
             <div className="title">
@@ -30,50 +80,15 @@ export const Documents = ({data}: dataProps) => {
             <div className="container">
                 <div className="perfil">
                     <div className="image">
-                        <Gravatar email={data.email}/>
+                        <Gravatar className="gravatar" email={data.email}/>
                     </div>
                     <h2>{data.name}</h2>
                     <p>{data.document}</p>
                 </div>
                 <div className="content">
-                    <div className="card">
-                        <div className="header">
-                            <Image src={doc} alt=""/>
-                            <h2>{data.documents}</h2>
-                        </div>
-                        <div className="description">
-                            <p>
-                                {data.documents}
-                            </p>
-                            <Link href="/dowload">
-                                <a>
-                                    <Image src={download} alt=""/>
-                                </a>
-                            </Link>
-                        </div>
-                    </div>
+                    {!rows ? <h2>Nenhum documento encontrado</h2> : rows}
                 </div>
             </div>
         </Section>
     );
 };
-
-export const getServerSideProps: GetServerSideProps = async ({params, req}:any) => {
-    console.log('req', req);
-    const response =
-        await fetch(`${BASE_URL}/me/${params.id}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                'Authorization': `Bearer ${req.cookies.token}`
-            },
-        })
-    const data = await response.json();
-    console.log('data', response);
-
-    return {
-        props: {
-            data
-        }
-    }
-}

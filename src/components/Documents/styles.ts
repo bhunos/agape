@@ -4,6 +4,75 @@ export const Section = styled.div`
 width: 100vw;
 padding: 5rem 0;
 
+.formModal {
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      
+ p {
+   margin-bottom: 1rem;
+   text-align: center;
+   font-size: 1.5rem;
+   font-weight: bold;
+ }
+  
+ .containerForm {
+      width: 50%;
+      height: 50%;
+      background-color: #fff;
+      padding: 2rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: relative;
+      border-radius: 30px;
+      form {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      
+      close {
+      }
+   
+   label {
+   margin-bottom: 5px;
+   }
+   
+   input {
+       margin-bottom: 1rem;
+       width: 100%;
+       height: 3rem;
+       padding: 0.5rem;
+   }
+   button {
+      width: 6.875rem;
+      height: 2rem;
+      border-radius: 3.125rem;
+      border: none;
+      background: var(--red-500);
+      color: var(--white);
+      font-size: 1rem;
+      cursor: pointer;
+      
+      transition: filter 0.5s;
+
+&:hover {
+  filter: brightness(0.8);
+}
+   }
+  }
+ }
+}
+form {
+display: flex;
+flex-direction: column;
+}
+}
+
 h1 {
   text-align: center;
   font-family: "Poppins", sans-serif;
@@ -32,10 +101,11 @@ h1 {
     .image {
       display: flex;
       justify-content: center;
-      img{
-        border-radius: 50rem;
-
-      }
+     .gravatar {
+         width: 100px;
+         height: 100px;
+         border-radius: 50rem;
+       } 
       
     }
 
@@ -43,6 +113,7 @@ h1 {
       font-family: "Poppins", sans-serif;
       font-size: 1.3rem;
       font-weight: 400;
+      text-align: center;
     }
 
     p {
@@ -111,10 +182,11 @@ h1 {
       padding: 2rem;
       
       .image {
-        
-        img {
-          width: 50%;
-        }
+       .gravatar {
+         width: 100px;
+         height: 100px;
+         border-radius: 50rem;
+       } 
       }
     }
     .content{
