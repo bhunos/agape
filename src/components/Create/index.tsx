@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { BASE_URL } from "../../config";
 import Router from "next/router";
 import { parseCookies, setCookie } from "nookies";
+import { mask } from "../Mask/index";
 
 interface createdProps {
   name: string;
@@ -16,6 +17,7 @@ interface createdProps {
 
 export function Create() {
   const { register, handleSubmit } = useForm();
+  const [valor, setValor] = useState("");
 
   const [token, setToken] = useState<string | null>(null);
 
@@ -38,8 +40,10 @@ export function Create() {
     const cookies = parseCookies().token;
     const res = await fetch(`${BASE_URL}/register`, {
       method: "POST",
-      headers: { "Content-Type": "application/json",
-        'Authorization': `Bearer ${cookies}`},
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${cookies}`,
+      },
       body: JSON.stringify({
         name,
         email,
@@ -70,6 +74,12 @@ export function Create() {
     } catch ({ message }) {
       alert(message);
     }
+  }
+
+  function handleChangeMask(event: any) {
+    const { value } = event.target;
+
+    setValor(mask(value));
   }
 
   return (
@@ -138,7 +148,10 @@ export function Create() {
             <label htmlFor="createEmail"></label>
             <input
               {...register("document")}
-              type="number"
+              type="text"
+              maxLength={18}
+              onChange={handleChangeMask}
+              value={valor}
               id="createDocument"
               name="document"
               placeholder="Insira seu documento aqui"

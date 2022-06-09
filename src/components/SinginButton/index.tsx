@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { parseCookies } from "nookies";
 import React, { useState } from "react";
 import { Login } from "../Login";
 
@@ -11,13 +12,20 @@ export interface IsModalVisible {
 
 export function SinginButton() {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const { token } = parseCookies();
 
   return (
     <>
       <Content>
-        <Link href="/entrar">
-          <a>Entrar</a>
-        </Link>
+        {token ? (
+          <Link href="/sair">
+            <a>Sair</a>
+          </Link>
+        ) : (
+          <Link href="/entrar">
+            <a>Entrar</a>
+          </Link>
+        )}
       </Content>
       {isModalVisible ? <Login /> : null}
     </>
