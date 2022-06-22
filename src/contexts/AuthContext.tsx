@@ -64,6 +64,10 @@ export function AuthProvider({ children }: any) {
     }
   }
 
+const logout = () => {
+    localStorage.removeItem("user")
+  }
+
   return (
     <AuthContext.Provider value={{ token, signIn }}>
       {children}

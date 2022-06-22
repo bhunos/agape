@@ -4,8 +4,7 @@ import { Footer } from "../../components/footer";
 import { HeroUser } from "../../components/HeroUser";
 import { Section } from "./styles";
 
-import React, { useEffect, useState } from "react";
-import { parseCookies } from "nookies";
+import React from "react";
 import { BASE_URL } from "../../config";
 import Gravatar from "react-gravatar";
 

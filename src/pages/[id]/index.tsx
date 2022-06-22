@@ -74,7 +74,7 @@ export default function User({ data }: dataProps) {
     const document = data.documents[i];
 
     const saveFile = async () => {
-      saveAs(`${BASE_URL}/download-document/${document.id}`, document.name);
+      saveAs(`${BASE_URL}/download-document/;base64`, document.name);
     };
 
     rows.push(

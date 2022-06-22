@@ -5,6 +5,12 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../contexts/AuthContext";
 import { BASE_URL } from "../../config";
 import { mask } from "../Mask/index";
+import Email from "next-auth/providers/email";
+
+interface forgotProps {
+  forgotEmail: string;
+  forgotDocument: string
+}
 
 export const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -37,19 +43,26 @@ export const Login = () => {
     });
   };
 
-  const forgotPassword = async (formValues: any) => {
-    const data = new FormData();
+  async function forgotPassword({ forgotEmail, forgotDocument }: forgotProps) {
+    let document = forgotDocument.replace(/[^\d]+/g, '')
 
-    data.append("email", formValues.email);
-    data.append("document", formValues.document.replace(/\D/g, ""));
+    try {
+      const response = await fetch(`${BASE_URL}/forgot-password`, {
+        method: "POST",
+        body: JSON.stringify({
+          email: forgotEmail,
+          document: document
+        })
+      })
 
-    await fetch(`${BASE_URL}/forgot-password`, {
-      method: "POST",
-      body: data,
-    });
+      alert(`Sua nova senha foi enviada para o e-mail ${forgotEmail}`)
+      window.location.href = '/entrar';
 
-    console.log("data", data);
-  };
+    } catch (error) {
+      console.error(error)
+    }
+    console.log('email', forgotDocument)
+  }
 
   function handleChangeMask(event: any) {
     const { value } = event.target;
@@ -112,16 +125,17 @@ export const Login = () => {
               <input
                 {...register("forgotEmail")}
                 name="forgotEmail"
-                type="forgotEmail"
+                type="email"
                 id="forgotEmail"
-                autoComplete="forgotEmail"
                 required
                 placeholder="Email"
               />
+            </label>
+            <label htmlFor="forgotDocument">
               <input
-                {...register("document")}
-                name="document"
-                type="document"
+                {...register("forgotDocument")}
+                name="forgotDocument"
+                type="text"
                 maxLength={18}
                 onChange={handleChangeMask}
                 value={valor}
