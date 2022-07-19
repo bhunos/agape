@@ -44,13 +44,13 @@ export const Documents = () => {
     rows.push(
       <div className="card" key={i}>
         <div className="header">
-          <Image src={doc} alt="" />
+          <Image src={doc} alt="teste" />
           <h2>{document.name}</h2>
         </div>
         <div className="description">
           <p>{document.description}</p>
           <a download>
-            <Image src={download} alt="" />
+            <Image src={download} alt="teste" />
           </a>
         </div>
       </div>

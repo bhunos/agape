@@ -80,16 +80,16 @@ export default function User({ data }: dataProps) {
     rows.push(
       <div className="card" key={i}>
         <div className="header">
-          <Image src={doc} alt="" />
+          <Image src={doc} alt="teste" />
           <h2>{document.name}</h2>
         </div>
         <div className="description">
           <p>{document.description}</p>
           <a href="">
-            <Image src={trash}></Image>
+            <Image src={trash} alt="teste"></Image>
           </a>
           <a onClick={saveFile}>
-            <Image src={download} />
+            <Image src={download} alt="teste" />
           </a>
         </div>
       </div>

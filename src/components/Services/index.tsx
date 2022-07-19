@@ -13,7 +13,7 @@ export const Services = () => {
       <h2>Serviços</h2>
       <section className="cards">
         <div className="card">
-          <Image src={working} alt="" />
+          <Image src={working} alt="teste" />
           <h3>Constituição de Empresas</h3>
           <div className="line"></div>
           <p>Abertura de empresas nos mais
@@ -21,13 +21,13 @@ export const Services = () => {
             ONG&apos;s, MEI, dentre outros.</p>
         </div>
         <div className="card">
-          <Image src={contabil} alt="" />
+          <Image src={contabil} alt="teste" />
           <h3>Escrituração Contábil</h3>
           <div className="line"></div>
           <p>Conferencia de Notas Fiscais, apuração tributaria, emissão de tributos, transmissão de declarações ao fisco, dentre outros.</p>
         </div>
         <div className="card">
-          <Image src={human} alt="" />
+          <Image src={human} alt="teste" />
           <h3>Recurso Humanos</h3>
           <div className="line"></div>
           <p>Calculo de folhas de pagamento, execução de admissão e demissão, orientação sobre temas trabalhistas, transmissão de Declarações ao fisco, dentre outros.</p>
@@ -35,13 +35,13 @@ export const Services = () => {
       </section>
       <section className="section">
         <div className="card">
-          <Image src={tribut} alt="" />
+          <Image src={tribut} alt="teste" />
           <h3>Planejamento Tributário</h3>
           <div className="line"></div>
           <p>Estudo para o enquadramento da vossa empresa, na melhor forma possível, para uma maior economia fiscal.</p>
         </div>
         <div className="card">
-          <Image src={outhers} alt="" />
+          <Image src={outhers} alt="teste" />
           <h3>Outros</h3>
           <div className="line"></div>
           <p>- Contabilidade de empresas sem fins lucrativos<br />

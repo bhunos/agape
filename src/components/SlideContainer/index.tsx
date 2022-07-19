@@ -42,21 +42,21 @@ export const SliderContiner = () => {
         <SwiperSlide className="image">
           <Link href="#">
             <a target="_blank">
-              <Image src={logoteste} alt="" />
+              <Image src={logoteste} alt="teste" />
             </a>
           </Link>
         </SwiperSlide>
         <SwiperSlide className="image">
           <Link href="#">
             <a target="_blank">
-              <Image src={logoAdvocacia} alt="" />
+              <Image src={logoAdvocacia} alt="teste" />
             </a>
           </Link>
         </SwiperSlide>
         <SwiperSlide className="image">
           <Link href="#">
             <a target="_blank">
-              <Image src={logoteste} alt="" />
+              <Image src={logoteste} alt="teste" />
             </a>
           </Link>
         </SwiperSlide>
