@@ -4,6 +4,7 @@ import { Footer } from "../../components/footer";
 import { HeroUser } from "../../components/HeroUser";
 import { Section } from "../../styles/adminStyles";
 import Image from "next/image";
+import entrar from "../../../public/image/entrar.png";
 
 import React from "react";
 import { BASE_URL } from "../../config";
@@ -35,7 +36,7 @@ const User: NextPage = ({ data }: any) => {
           <li>
             <Link href={`/${gravatar.id}`}>
             <a>
-              <Image src="image/entrar.png" alt="Entrar" />
+              <Image src={entrar} alt="Entrar" />
             </a>
             </Link>
           </li>
