@@ -3,6 +3,7 @@ import { Divider } from "../../components/Divider";
 import { Footer } from "../../components/footer";
 import { HeroUser } from "../../components/HeroUser";
 import { Section } from "../../styles/adminStyles";
+import Image from "next/image";
 
 import React from "react";
 import { BASE_URL } from "../../config";
@@ -20,8 +21,8 @@ const User: NextPage = ({ data }: any) => {
           <Gravatar email={gravatar.email} />
           <h1>{gravatar.name}</h1>
         </div>
-        {/* <ul className="open">
-          <li>
+        <ul className="open">
+          {/* <li>
             <a href="/delete">
               <img src="image/delete.png" alt="Deletar" />
             </a>
@@ -30,13 +31,15 @@ const User: NextPage = ({ data }: any) => {
             <a href="/update">
               <img src="image/editar.png" alt="editar" />
             </a>
-          </li>
+          </li> */}
           <li>
-            <a href={`/${gravatar.id}`}>
-              <img src="image/entrar.png" alt="Entrar" />
+            <Link href={`/${gravatar.id}`}>
+            <a>
+              <Image src="image/entrar.png" alt="Entrar" />
             </a>
+            </Link>
           </li>
-        </ul> */}
+        </ul>
       </div>
     );
   }
