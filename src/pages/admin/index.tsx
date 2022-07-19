@@ -36,7 +36,7 @@ const User: NextPage = ({ data }: any) => {
           <li>
             <Link href={`/${gravatar.id}`}>
             <a>
-              <Image src={entrar} alt="Entrar" />
+              <img src="image/entrar.png" alt="Entrar" />
             </a>
             </Link>
           </li>
