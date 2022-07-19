@@ -29,7 +29,7 @@ export const Documents = () => {
     });
     const data = await response.json();
     setData(data);
-  }
+  };
 
   useEffect(() => {
     getData();

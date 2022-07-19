@@ -6,7 +6,7 @@ export function LottieScrol() {
   const ref = useRef(null);
   React.useEffect(() => {
     import("@lottiefiles/lottie-player");
-  });
+  }, []);
 
   return (
     <GetLottiesScrol>

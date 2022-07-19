@@ -6,9 +6,6 @@ import { Ul } from './styles'
 
 export const RingthNav = ({ open, onClickLink }: OpenProps) => {
 
-  useEffect(() => {
-  }, [])
-
   return (
     <Ul open={open} id="menu">
       <li>
