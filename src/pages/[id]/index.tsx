@@ -10,7 +10,6 @@ import { GetServerSideProps } from "next";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { parseCookies } from "nookies";
-import { saveAs } from "file-saver";
 
 import doc from "../../../public/image/doc.svg";
 import download from "./../../../public/image/download-file-square-line.svg";
@@ -73,10 +72,6 @@ export default function User({ data }: dataProps) {
     // @ts-ignore
     const document = data.documents[i];
 
-    const saveFile = async () => {
-      saveAs(`${BASE_URL}/download-document/;base64`, document.name);
-    };
-
     rows.push(
       <div className="card" key={i}>
         <div className="header">
@@ -88,7 +83,7 @@ export default function User({ data }: dataProps) {
           <a href="">
             <Image src={trash} alt="teste"></Image>
           </a>
-          <a onClick={saveFile}>
+          <a>
             <Image src={download} alt="teste" />
           </a>
         </div>
