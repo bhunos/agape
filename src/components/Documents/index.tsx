@@ -33,7 +33,7 @@ export const Documents = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
 
   let rows = [];
 
@@ -50,7 +50,7 @@ export const Documents = () => {
         <div className="description">
           <p>{document.description}</p>
           <a download>
-            <Image src={download} alt="teste" />
+            <Image src={download} alt="" />
           </a>
         </div>
       </div>

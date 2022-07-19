@@ -1,6 +1,4 @@
 import styled from "styled-components"
-import { IsModalVisible } from "./index"
-
 
 export const Content = styled.button`
   width: 6.875rem;
@@ -11,7 +9,7 @@ export const Content = styled.button`
   color: var(--white);
   font-size: 1rem;
   cursor: pointer;
-  
+
   transition: filter 0.5s;
 
 &:hover {

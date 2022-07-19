@@ -96,10 +96,12 @@ export const Login = () => {
         </form>
 
         <div className="links">
-          <button onClick={showDropdown}>Esqueceu a senha?</button>
+          <Link href="">
+          <a className="buton-style" onClick={showDropdown}>Esqueceu a senha?</a>
+          </Link>
 
           <Link href="https://api.whatsapp.com/send?phone=5544984449862&text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site.">
-            <a>Solicitar uma Criar Conta</a>
+            <a className="buton-style">Solicitar uma Criar Conta</a>
           </Link>
         </div>
       </div>

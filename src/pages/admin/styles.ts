@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Section = styled.div`
 width: 100vw;
@@ -15,7 +15,7 @@ h1 {
         justify-content: center;
             button {
                 margin-top: 1rem;
-                
+
                 width: 12.3rem;
                 height: 3rem;
                 border-radius: 2rem;
@@ -27,7 +27,6 @@ h1 {
             }
         }
       }
-
 
 .container {
   width: calc(100% - 30%);
@@ -42,7 +41,7 @@ h1 {
     justify-content: center;
     background: #F4F4F4;
     gap: 2rem;
-  
+
     border-radius: 2rem;
 
     .image {
@@ -53,7 +52,7 @@ h1 {
         border-radius: 50rem;
 
       }
-      
+
     }
 
     h1 {
@@ -90,11 +89,11 @@ h1 {
         background: #F4F4F4;
         padding: 1rem;
         border-radius: 2rem;
-      
+
       .header {
         display: flex;
         align-items: center;
-        
+
         img {
           width: 3.5rem;
           height: 3.5rem;
@@ -103,17 +102,17 @@ h1 {
         }
       }
 
-      
+
       .open {
       display: flex;
       align-items: center;
       justify-content: center;
       grid-gap: .5rem;
-      
+
        li {
        list-style: none;
        cursor: pointer;
-       
+
        img {
        width: 2.5rem;
        }
@@ -121,31 +120,32 @@ h1 {
     }
   }
 }
+}
 
 @media (max-width: 1200px) {
   width: 100%;
-  
+
   .create {
         a {
             button {
             float: unset;
-            
+
                     }
                 }
             }
-  
+
   .container{
     width: 90%;
     margin: 0 auto;
     padding-top: 1rem;
-    
+
     .perfil {
       display: flex;
       height: auto;
       padding: 2rem;
-      
+
       .image {
-        
+
         img {
           width: 50%;
         }
@@ -158,26 +158,26 @@ h1 {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        
+
         .header {
             display: flex;
             flex-direction: column;
-        
+
             img{
                 margin: 0;
                 width: 4.5rem;
                 height: 4.5rem;
             }
-        
+
         h1{
             margin-top: 1rem;
             margin-bottom: 0.5rem;
         }
-        
+
       }
-      
+
     }
   }
-
+}
 }
 `
