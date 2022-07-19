@@ -19,7 +19,7 @@ const User: NextPage = ({ data }: any) => {
           <Gravatar email={gravatar.email} />
           <h1>{gravatar.name}</h1>
         </div>
-        <ul className="open">
+        {/* <ul className="open">
           <li>
             <a href="/delete">
               <img src="image/delete.png" alt="Deletar" />
@@ -35,7 +35,7 @@ const User: NextPage = ({ data }: any) => {
               <img src="image/entrar.png" alt="Entrar" />
             </a>
           </li>
-        </ul>
+        </ul> */}
       </div>
     );
   }
