@@ -1,5 +1,6 @@
 import { parseCookies, destroyCookie } from "nookies";
 import React, {useState } from "react";
+import Link from 'next/link'
 import { Login } from "../Login";
 
 import { Content } from "./styles";
@@ -26,9 +27,11 @@ export function SinginButton() {
             <p>Sair</p>
           </div>
         ) : (
-          <a href="/entrar">
+            <Link href="/entrar">
+            <a >
             <p>Entrar</p>
           </a>
+            </Link>
         )}
       </Content>
       {isModalVisible ? <Login /> : null}

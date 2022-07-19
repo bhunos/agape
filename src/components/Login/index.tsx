@@ -5,12 +5,6 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../contexts/AuthContext";
 import { BASE_URL } from "../../config";
 import { mask } from "../Mask/index";
-import Email from "next-auth/providers/email";
-
-interface forgotProps {
-  forgotEmail: string;
-  forgotDocument: string
-}
 
 export const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -43,7 +37,7 @@ export const Login = () => {
     });
   };
 
-  async function forgotPassword({ forgotEmail, forgotDocument }: forgotProps) {
+  async function forgotPassword({ forgotEmail, forgotDocument }: any) {
     let document = forgotDocument.replace(/[^\d]+/g, '')
 
     try {
@@ -102,7 +96,7 @@ export const Login = () => {
         </form>
 
         <div className="links">
-          <a onClick={showDropdown}>Esqueceu a senha?</a>
+          <button onClick={showDropdown}>Esqueceu a senha?</button>
 
           <Link href="https://api.whatsapp.com/send?phone=5544984449862&text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site.">
             <a>Solicitar uma Criar Conta</a>

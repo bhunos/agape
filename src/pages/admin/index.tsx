@@ -7,6 +7,7 @@ import { Section } from "./styles";
 import React from "react";
 import { BASE_URL } from "../../config";
 import Gravatar from "react-gravatar";
+import Link from 'next/link'
 
 const User: NextPage = ({ data }: any) => {
   let rows = [];
@@ -49,9 +50,11 @@ const User: NextPage = ({ data }: any) => {
           <h1>Clientes</h1>
         </div>
         <div className="create">
-          <a href="/registrar" className="open">
+          <Link href="/registrar">
+          <a className="open">
             <button>Criar Usuario</button>
           </a>
+          </Link>
         </div>
         <div className="container">
           <div className="content">{rows}</div>
