@@ -2,7 +2,7 @@ import type { GetServerSideProps, NextPage } from "next";
 import { Divider } from "../../components/Divider";
 import { Footer } from "../../components/footer";
 import { HeroUser } from "../../components/HeroUser";
-import { Section } from "./styles";
+import { Section } from "../../styles/adminStyles";
 
 import React from "react";
 import { BASE_URL } from "../../config";
