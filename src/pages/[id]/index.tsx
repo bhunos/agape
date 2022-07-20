@@ -10,6 +10,7 @@ import { GetServerSideProps } from "next";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { parseCookies } from "nookies";
+import base64 from "base-64";
 
 import doc from "../../../public/image/doc.svg";
 import download from "./../../../public/image/download-file-square-line.svg";
@@ -49,7 +50,6 @@ export default function User({ data }: dataProps) {
   };
 
   async function upDocument(formValues: any) {
-    const file = formValues.file[0];
     const data = new FormData();
     data.append("file", formValues.file[0]);
     data.append("clientId", id);
@@ -60,6 +60,7 @@ export default function User({ data }: dataProps) {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
+
       },
       body: data,
     });
@@ -72,6 +73,28 @@ export default function User({ data }: dataProps) {
     // @ts-ignore
     const document = data.documents[i];
 
+    // const urlDownload = async () => {
+
+    //   await fetch(`${BASE_URL}/download-document/${document.id}`, {
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //     }
+    //   })
+    //   .then(resp => resp.blob())
+    //   .then(blob => {
+    //     const url = window.URL.createObjectURL(blob);
+    //     const a = document.createElement("a");
+    //     a.style.display = "none";
+    //     a.href = url;
+    //     a.download = document.name + '.pdf';
+    //     document.body.appendChild(a);
+    //     a.click();
+    //     window.URL.revokeObjectURL(url);
+    //     alert("your file has downloaded!")
+    //   })
+    //   .catch(() => alert("oh no!"));
+    // }
+
     rows.push(
       <div className="card" key={i}>
         <div className="header">
@@ -80,10 +103,10 @@ export default function User({ data }: dataProps) {
         </div>
         <div className="description">
           <p>{document.description}</p>
-          <a href="">
+          <a>
             <Image src={trash} alt="teste"></Image>
           </a>
-          <a>
+          <a download>
             <Image src={download} alt="teste" />
           </a>
         </div>

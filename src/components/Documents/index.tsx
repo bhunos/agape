@@ -6,8 +6,9 @@ import download from "../../../public/image/download-file-square-line.svg";
 import Link from "next/link";
 import { BASE_URL } from "../../config";
 import Gravatar from "react-gravatar";
-import { GetServerSideProps } from "next";
 import { parseCookies } from "nookies";
+import axios from "axios";
+
 
 export const Documents = () => {
   const { token } = parseCookies();
@@ -33,13 +34,27 @@ export const Documents = () => {
 
   useEffect(() => {
     getData();
-  }, [getData]);
+  }, []);
 
   let rows = [];
 
   for (let i in data.documents) {
     // @ts-ignore
     const document = data.documents[i];
+
+    const urlDownload = async () => {
+
+      const res = await axios.get(`${BASE_URL}/download-document/${document.id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/pdf'
+        },
+        responseType: 'blob'
+
+      })
+
+      console.log('res', res)
+    }
 
     rows.push(
       <div className="card" key={i}>
@@ -49,7 +64,7 @@ export const Documents = () => {
         </div>
         <div className="description">
           <p>{document.description}</p>
-          <a download>
+          <a onClick={urlDownload} target="__blank">
             <Image src={download} alt="" />
           </a>
         </div>

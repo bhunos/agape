@@ -140,8 +140,8 @@ export const Section = styled.div`
       z-index: 100;
       position: absolute;
       background: var(--white);
-      width: 50%;
-      height: 36%;
+      width: 45rem;
+      height: 24rem;
       top: -50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -165,7 +165,7 @@ export const Section = styled.div`
         font-size: 2rem;
         font-weight: bold;
         font-family: "Poppins", sans-serif;
-        margin-top: 2rem;
+        margin-top: 1rem;
         cursor: pointer;
       }
 
@@ -241,8 +241,8 @@ export const Section = styled.div`
     .forgot-password {
       z-index: 9999;
       &--container {
-        width: 90%;
-        height: 36%;
+        width: 20rem;
+        height: 23rem;
         padding: 2.5rem 0.5rem;
 
         header {

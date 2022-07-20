@@ -159,15 +159,17 @@ export const Section = styled.div`
 
       h2 {
         font-family: "Poppins", sans-serif;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         font-weight: 400;
         text-align: center;
+        font-weight: bold;
         width: 90%;
       }
 
       p {
         font-family: "Roboto", sans-serif;
-        font-size: 0.8rem;
+        font-size: 1.2rem;
+        font-weight: 500;
       }
 
       button {

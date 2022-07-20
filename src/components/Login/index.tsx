@@ -41,7 +41,7 @@ export const Login = () => {
     let document = forgotDocument.replace(/[^\d]+/g, '')
 
     try {
-      const response = await fetch(`${BASE_URL}/forgot-password`, {
+       await fetch(`${BASE_URL}/forgot-password`, {
         method: "POST",
         body: JSON.stringify({
           email: forgotEmail,
