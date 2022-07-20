@@ -1,10 +1,13 @@
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import { destroyCookie, parseCookies } from 'nookies'
+import React, { useEffect, useState } from 'react'
 import { OpenProps } from '../HamburgerMenu'
 import { SinginButton } from '../SinginButton'
 import { Ul } from './styles'
 
 export const RingthNav = ({ open, onClickLink }: OpenProps) => {
+
+  const { token } = parseCookies();
 
   return (
     <Ul open={open} id="menu">
@@ -28,7 +31,12 @@ export const RingthNav = ({ open, onClickLink }: OpenProps) => {
           <a onClick={onClickLink}>Contato</a>
         </Link>
       </li>
-      <SinginButton />
+      {token ? (<Link href="/user">
+        <img className='user' src="/image/user.svg" onClick={onClickLink} />
+      </Link>): null}
+      <SinginButton open={false} onClickLink={function (): void {
+        throw new Error('Function not implemented.')
+      } } />
     </Ul>
   )
 }

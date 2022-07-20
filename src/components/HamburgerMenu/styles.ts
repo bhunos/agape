@@ -14,7 +14,7 @@ justify-content: space-around;
 flex-flow: column nowrap;
 position: fixed;
 
-div { 
+div {
   display: none;
   width: 2rem;
   height: 0.25rem;

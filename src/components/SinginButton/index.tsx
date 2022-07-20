@@ -4,13 +4,14 @@ import Link from 'next/link'
 import { Login } from "../Login";
 
 import { Content } from "./styles";
+import { OpenProps } from "../HamburgerMenu";
 
 export interface IsModalVisible {
   isModalVisible: boolean;
   onClickLink: () => void;
 }
 
-export function SinginButton() {
+export function SinginButton({ open, onClickLink }: OpenProps) {
   const { token } = parseCookies();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -28,7 +29,7 @@ export function SinginButton() {
           </div>
         ) : (
             <Link href="/entrar">
-            <a >
+            <a onClick={onClickLink}>
             <p>Entrar</p>
           </a>
             </Link>

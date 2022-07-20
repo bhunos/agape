@@ -141,7 +141,7 @@ export const Section = styled.div`
       position: absolute;
       background: var(--white);
       width: 50%;
-      height: 58%;
+      height: 36%;
       top: -50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -239,9 +239,10 @@ export const Section = styled.div`
     }
 
     .forgot-password {
+      z-index: 9999;
       &--container {
         width: 90%;
-        height: 58%;
+        height: 36%;
         padding: 2.5rem 0.5rem;
 
         header {
