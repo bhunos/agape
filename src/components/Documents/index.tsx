@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Section } from "./styles";
 import Image from "next/image";
+import { parseCookies } from "nookies";
+import { useEffect, useState } from "react";
+import Gravatar from "react-gravatar";
 import doc from "../../../public/image/doc.svg";
 import download from "../../../public/image/download-file-square-line.svg";
-import Link from "next/link";
 import { BASE_URL } from "../../config";
-import Gravatar from "react-gravatar";
-import { parseCookies } from "nookies";
-import axios from "axios";
-
+import { Section } from "./styles";
 
 export const Documents = () => {
   const { token } = parseCookies();
@@ -30,7 +27,7 @@ export const Documents = () => {
     });
     const data = await response.json();
     setData(data);
-  };
+  }
 
   useEffect(() => {
     getData();
@@ -42,20 +39,6 @@ export const Documents = () => {
     // @ts-ignore
     const document = data.documents[i];
 
-    const urlDownload = async () => {
-
-      const res = await axios.get(`${BASE_URL}/download-document/${document.id}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Accept': 'application/pdf'
-        },
-        responseType: 'blob'
-
-      })
-
-      console.log('res', res)
-    }
-
     rows.push(
       <div className="card" key={i}>
         <div className="header">
@@ -64,7 +47,14 @@ export const Documents = () => {
         </div>
         <div className="description">
           <p>{document.description}</p>
-          <a onClick={urlDownload} target="__blank">
+          <a
+            href={`${BASE_URL}/download-document/${
+              document.id
+            }?token=${window.btoa(token)}`}
+            target="_blank"
+            download
+            rel="noreferrer"
+          >
             <Image src={download} alt="" />
           </a>
         </div>

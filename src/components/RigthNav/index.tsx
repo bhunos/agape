@@ -1,11 +1,11 @@
-import Link from 'next/link'
-import { destroyCookie, parseCookies } from 'nookies'
-import React, { useEffect, useState } from 'react'
-import { OpenProps } from '../HamburgerMenu'
-import { SinginButton } from '../SinginButton'
-import { Ul } from './styles'
+import Link from "next/link";
+import { parseCookies } from "nookies";
+import { OpenProps } from "../HamburgerMenu";
+import { SinginButton } from "../SinginButton";
+import { Ul } from "./styles";
 
 export const RingthNav = ({ open, onClickLink }: OpenProps) => {
+  console.log("this", this);
 
   const { token } = parseCookies();
 
@@ -31,12 +31,17 @@ export const RingthNav = ({ open, onClickLink }: OpenProps) => {
           <a onClick={onClickLink}>Contato</a>
         </Link>
       </li>
-      {token ? (<Link href="/user">
-        <img className='user' src="/image/user.svg" onClick={onClickLink} />
-      </Link>): null}
-      <SinginButton open={false} onClickLink={function (): void {
-        throw new Error('Function not implemented.')
-      } } />
+      {token ? (
+        <Link href="/user">
+          <img className="user" src="/image/user.svg" onClick={onClickLink} />
+        </Link>
+      ) : null}
+      <SinginButton
+        open={false}
+        onClickLink={function (): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
     </Ul>
-  )
-}
+  );
+};
